@@ -1075,5 +1075,15 @@ class Command(BaseCommand):
 
 
 if __name__ == "__main__":
-    setup = DjangoFullProjectSetup(folder_path="D:/aa/chat_bot", project_name="sujith_project")
+    folder_path = input(
+                    "Enter the folder path (D:/folder_1/folder_2) : "
+                ) or "D:/projects"
+
+    while True:
+        project_name = input("Enter project name : ").strip()
+        if project_name:
+            break
+        print("❌ Project name is required. Please enter a valid name.")
+
+    setup = DjangoFullProjectSetup(folder_path=folder_path, project_name=project_name)
     setup.run()
